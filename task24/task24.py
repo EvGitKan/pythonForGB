@@ -12,12 +12,16 @@ print(f'Количество ягод на кустах: {berries}')
 
 count_berries = []
 max_count_berries = 0
-for i in range(len(berries)):
-   if i > 0 and i < len(berries) - 1:
-    count_berries.append(berries[i] + berries[i - 1] + berries[i + 1])
-   elif i == 0:
-    count_berries.append(berries[i] + berries[len(berries) - 1 - i] + berries[i + 1])
-   else:
-    count_berries.append(berries[i] + berries[len(berries) - 1 - i] + berries[i - 1])
-
-print(f'Максимальное числа ягод, которое может собрать за один заход собирающий модуль = {max(count_berries)}')
+if N == 1:
+    print(f'Максимальное числа ягод, которое может собрать за один заход собирающий модуль = {berries[0]}')
+elif N < 1:
+    print(f'Максимальное числа ягод, которое может собрать за один заход собирающий модуль = 0')
+else:
+    for i in range(len(berries)):
+        if i > 0 and i < len(berries) - 1:
+            count_berries.append(berries[i] + berries[i - 1] + berries[i + 1])
+        elif i == 0:
+            count_berries.append(berries[i] + berries[len(berries) - 1 - i] + berries[i + 1])
+        else:
+            count_berries.append(berries[i] + berries[len(berries) - 1 - i] + berries[i - 1])
+    print(f'Максимальное числа ягод, которое может собрать за один заход собирающий модуль = {max(count_berries)}')
